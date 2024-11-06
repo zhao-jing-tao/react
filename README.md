@@ -34,3 +34,25 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
 # 使用中间件来配置代理 http-proxy-middleware
+
+1. 安装 http-proxy-middleware
+
+```bash
+npm install http-proxy-middleware --save
+```
+
+2. 在 src 目录下创建 setupProxy.js 文件
+
+```js
+const { createProxyMiddleware } = require('http-proxy-middleware');
+
+module.exports = function(app) {
+  app.use(
+    '/api',
+    createProxyMiddleware({
+      target: 'http://localhost:5000',
+      changeOrigin: true,
+      pathRewrite: { '^/api': '/api' },
+    })
+  )
+}
