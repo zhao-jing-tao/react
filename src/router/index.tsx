@@ -1,4 +1,5 @@
 
+import { Navigate } from "react-router-dom"
 
 import Login from "../views/login"
 import Layout from "../layout"
@@ -6,7 +7,6 @@ import Chart from "../views/chart"
 
 import Part1 from "../views/menu1/part1"
 import Part2 from "../views/menu1/part2"
-import { Navigate } from "react-router-dom"
 
 const routes = [
   {
